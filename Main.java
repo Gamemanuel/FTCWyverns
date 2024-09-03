@@ -7,6 +7,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 
 public class Main extends LinearOpMode {
     // makes it so i can access the the motors from different children classes
+    //mapping
+    //         ______                    ______
+//            |      |  _____    _____  |      |
+//            |      |-|M(L1)|  |M(R1)|-|      |
+//            |______| |_____|  |_____| |______|
+
+
+//             ______   _____    _____   ______
+//            |      | |M(L2)|  |M(R3)| |      |
+//            |      |-|_____|  |_____|-|      |
+ //           |______|                  |______|
+
+    
         DcMotor left1;
         DcMotor left2;
         DcMotor right1;
