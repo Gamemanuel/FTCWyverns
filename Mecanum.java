@@ -65,8 +65,8 @@ import com.qualcomm.robotcore.hardware.DcMotor;
         public void straif ( double power ) {
             // for mecanum straifing
             left1.setPower(power);
-            left2.setPower(power);
-            right1.setPower(power);
+            left2.setPower(-power);
+            right1.setPower(-power);
             right2.setPower(power);
         }
 
