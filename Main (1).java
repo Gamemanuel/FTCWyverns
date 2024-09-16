@@ -23,7 +23,6 @@ public class Main extends LinearOpMode {
             //left2.setDirection(DcMotor.Direction.REVERSE);
             //right1.setDirection(DcMotor.Direction.FORWARD);
             //right2.setDirection(DcMotor.Direction.FORWARD);
-            
 
         //tank drive setting
         //spinleft(gamepad1.left_stick_y);

@@ -13,13 +13,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
         DcMotor left2;
         DcMotor right1;
         DcMotor right2;
+        public Webcamname;
+        
+
         @Override
         public void runOpMode() throws InterruptedException {
+            //Main main = new Main();
+            //main.strafeleft
             // sets the different motors
             left1 = hardwareMap.get(DcMotor.class, "left1");
             left2 = hardwareMap.get(DcMotor.class, "left2");
             right1 = hardwareMap.get(DcMotor.class, "right1");
             right2 = hardwareMap.get(DcMotor.class, "right2");
+            Webcamname = hardwareMap.get(Webcamname.class, "Webcam 1")
             //waits for start
             waitForStart();
             while(opModeIsActive()) {
@@ -33,11 +39,11 @@ import com.qualcomm.robotcore.hardware.DcMotor;
                 //straight and backwards
                 // not tank drive
                 //turning
-                turn(gamepad1.right_stick_x);
+                //turn(gamepad1.right_stick_x);
                 //forward
-                wholedrivetrain(gamepad1.left_stick_y);
-                //straifing
-                straif(gamepad1.left_stick_x);
+                wholedrivetrain(gamepad1.left_stick_x, gamepad1.left_stick_y, gamepad1.right_stick_x);
+                //strafeing
+                //strafe(gamepad1.left_stick_x);
             }
         }
         //sets motor controllers
@@ -57,12 +63,18 @@ import com.qualcomm.robotcore.hardware.DcMotor;
             spinright(-power);
             spinleft(power);
         }
-        public void wholedrivetrain ( double power) {
+        public void wholedrivetrain ( double x, double y, double turn) {
             //for going forward
-            spinright(power);
-            spinleft(power);
+            // spinright(power + turn);
+            // spinleft(power - turn);
+
+            
+            left1.setPower(y + x + turn);
+            left2.setPower(y - x + turn);
+            right1.setPower(y - x - turn);
+            right2.setPower(y + x - turn );
         }
-        public void straif ( double power ) {
+        public void strafe ( double power ) {
             // for mecanum straifing
             left1.setPower(power);
             left2.setPower(-power);
